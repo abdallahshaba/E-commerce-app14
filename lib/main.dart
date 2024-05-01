@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      home: const OnBoardingView(),
+    return const GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: OnBoardingView(),
     );
     
   }
