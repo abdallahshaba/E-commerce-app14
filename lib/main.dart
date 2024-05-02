@@ -1,4 +1,4 @@
-import 'package:e_commerce_app14/views/screen/onBoarding_view.dart';
+import 'package:e_commerce_app14/views/screen/onBoarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
