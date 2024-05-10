@@ -22,7 +22,7 @@ class DotControllerOnBoarding extends StatelessWidget {
                               color: AppColor.primaryColor,
                               borderRadius: BorderRadius.circular(10)
                             ),
-                            duration: const Duration(milliseconds: 900),
+                            duration: const Duration(milliseconds: 500),
                             ),
                             )
                         ],
