@@ -22,11 +22,11 @@ class Styles {
   );
 
   static const TextStyle boldtextStyle26 = TextStyle(
-    fontSize: 24 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
+    fontSize: 26 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
   );
 
   static const TextStyle boldtextStyle28 = TextStyle(
-    fontSize: 24 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
+    fontSize: 28 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
   );    
 
   // regular text

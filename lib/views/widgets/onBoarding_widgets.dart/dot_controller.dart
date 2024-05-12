@@ -19,7 +19,7 @@ class DotControllerOnBoarding extends StatelessWidget {
                             height: 6,
                             width: controller.currentPage == index ? 20 : 5,
                             decoration: BoxDecoration(
-                              color: AppColor.primaryColor,
+                              color: AppColor.kPrimaryColor,
                               borderRadius: BorderRadius.circular(10)
                             ),
                             duration: const Duration(milliseconds: 500),

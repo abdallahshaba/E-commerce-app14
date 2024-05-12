@@ -1,7 +1,7 @@
 import 'package:e_commerce_app14/core/localization/translation.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/routs.dart';
-import 'package:e_commerce_app14/views/screen/onBoarding_screen.dart';
+import 'package:e_commerce_app14/views/screen/language_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       translations: ChangeLanguage() ,
       debugShowCheckedModeBanner: false,
-      home: const OnBoardingView(),
+      home: const LanguageScreen(),
       routes: routes ,
     );
     
