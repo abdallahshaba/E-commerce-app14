@@ -20,9 +20,9 @@ List<OnBoardingModel> onBoardingList = [
     body: 'Best Tracker has been Used For Track \nyour order, You will know where your \nproduct is at the method',
   ),
 
-  OnBoardingModel(
-    title: 'Fast Delivery',
-    image: AppImageAsset.onBoardingImageFour,
-    body: 'We Have a 100k + Products Choose \nYour product from our E-Commerce Shop',
-  ),
+  // OnBoardingModel(
+  //   title: 'Fast Delivery',
+  //   image: AppImageAsset.onBoardingImageFour,
+  //   body: 'We Have a 100k + Products Choose \nYour product from our E-Commerce Shop',
+  // ),
 ];

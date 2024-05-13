@@ -28,6 +28,9 @@ class Styles {
   static const TextStyle boldtextStyle28 = TextStyle(
     fontSize: 28 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
   );    
+  static const TextStyle boldtextStyle30 = TextStyle(
+    fontSize: 30 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
+  );    
 
   // regular text
 

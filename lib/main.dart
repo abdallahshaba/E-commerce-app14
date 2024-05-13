@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/core/localization/local_controller.dart';
 import 'package:e_commerce_app14/core/localization/translation.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/routs.dart';
@@ -17,7 +18,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application
   @override
   Widget build(BuildContext context) {
+   LocalController controller = Get.put(LocalController());
     return GetMaterialApp(
+      locale: controller.language,
       translations: ChangeLanguage() ,
       debugShowCheckedModeBanner: false,
       home: const LanguageScreen(),
