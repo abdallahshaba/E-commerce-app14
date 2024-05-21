@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 
 class Styles {
 
+   static const TextStyle boldtextStyle16 = TextStyle(
+    fontSize: 16 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
+  ); 
+
   static const TextStyle boldtextStyle18 = TextStyle(
     fontSize: 18 , fontFamily: 'Poppins' , fontWeight: FontWeight.bold
   ); 

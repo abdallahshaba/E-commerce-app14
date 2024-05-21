@@ -8,8 +8,8 @@ import 'package:e_commerce_app14/views/widgets/Auth/cutome_textTiltle_Auth.dart'
 import 'package:e_commerce_app14/views/widgets/Auth/text_signIn.dart';
 import 'package:flutter/material.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +88,9 @@ class SignInScreen extends StatelessWidget {
                   ),
                    CustomTextSignInOrSignUp(
                     onTap: () {
-                      
                     },
-                    text1: "Don't have an account?",
-                    text2: "  Sign Up",
+                    text1: " Already have an account?",
+                    text2: "  Sign In",
                   )
                 ],
               ),

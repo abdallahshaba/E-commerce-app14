@@ -1,5 +1,7 @@
+import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppBarSignIn extends StatelessWidget {
   const CustomAppBarSignIn({super.key});
@@ -13,7 +15,7 @@ class CustomAppBarSignIn extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-        
+                 Get.offAllNamed(AppRouts.onBoarding);
             },
              child: const Icon(Icons.arrow_back)),
             const Padding(
