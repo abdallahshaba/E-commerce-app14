@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/controllers/Auth/signIn_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_appBar_Auth.dart';
@@ -7,25 +8,31 @@ import 'package:e_commerce_app14/views/widgets/Auth/custom_text_form_field_Auth.
 import 'package:e_commerce_app14/views/widgets/Auth/cutome_textTiltle_Auth.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/text_signIn.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    SignInControllerImp controller = Get.put(SignInControllerImp());
     return Scaffold(
       body: Column(
         children: [
           Container(
             color: AppColor.kBackgroundColor,
-            child: const Column(
+            child:  Column(
               children: [
-                SizedBox(
+               const SizedBox(
                   height: 50,
                 ),
-                CustomAppBarSignIn(),
-                SizedBox(
-                  height: 15,
+                CustomAppBarAuth(
+                  text: "Sign In",
+                  onTap: () {
+                  },
+                ),
+               const SizedBox(
+                  height: 35,
                 ),
               ],
             ),
@@ -53,27 +60,34 @@ class SignInScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  const CustomTextFormField(
+                   CustomTextFormField(
+                    textEditingController: controller.email ,
                     name: "Email",
                     hintText: 'Enter Your Email',
-                    icon: Icon(Icons.email_outlined),
+                    icon: const Icon(Icons.email_outlined),
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                  const CustomTextFormField(
+                   CustomTextFormField(
+                    textEditingController: controller.password ,
                     name: "Password",
                     hintText: 'Enter Your Password',
-                    icon: Icon(Icons.lock_outline),
+                    icon: const Icon(Icons.lock_outline),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    "Forget Password",
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 142, 134, 134),
+                  InkWell(
+                    onTap: () {
+                      controller.goToForgetPasswordPage();
+                    },
+                    child: const Text(
+                      "Forget Password",
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 142, 134, 134),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -88,7 +102,7 @@ class SignInScreen extends StatelessWidget {
                   ),
                    CustomTextSignInOrSignUp(
                     onTap: () {
-                      
+                      controller.goToSignUpPage();
                     },
                     text1: "Don't have an account?",
                     text2: "  Sign Up",
