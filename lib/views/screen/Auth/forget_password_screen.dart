@@ -55,7 +55,7 @@ class ForgerPasswordScreen extends StatelessWidget {
                   ),
                   const CustomTextBodyAuth(
                       text:
-                          'Check with Your Email OR Continue with Social Media'),
+                          'Please Enter Your Email Address To Recive A Verification Code'),
                   const SizedBox(
                     height: 30,
                   ),       
@@ -71,7 +71,9 @@ class ForgerPasswordScreen extends StatelessWidget {
                   ),
                   CustomButtonAuth(
                     text22: "Check",
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.goToVerifyCode();
+                    },
                   ),
                   const SizedBox(
                     height: 20,
