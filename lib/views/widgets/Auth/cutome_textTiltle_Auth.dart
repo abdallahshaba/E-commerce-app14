@@ -6,6 +6,6 @@ class CustomTextTitleAuth extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return  Text(text , style: Styles.boldtextStyle30, textAlign: TextAlign.center,);
+    return  Text(text , style: Styles.boldtextStyle28, textAlign: TextAlign.center,);
   }
 }

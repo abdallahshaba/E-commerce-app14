@@ -1,4 +1,4 @@
-import 'package:e_commerce_app14/controllers/Auth/reset_password_controller.dart';
+import 'package:e_commerce_app14/controllers/Auth/check_emial_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_button_Auth.dart';
@@ -8,13 +8,12 @@ import 'package:e_commerce_app14/views/widgets/Auth/cutome_textTiltle_Auth.dart'
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class ChechEmailScreen extends StatelessWidget {
+  const ChechEmailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-   // ignore: unused_local_variable
-   ResetPasswordControllerImp controller = Get.put(ResetPasswordControllerImp());
+   CheckEmailControllerImp controller = Get.put(CheckEmailControllerImp());
     return Scaffold(
       body: Column(
         children: [
@@ -29,7 +28,7 @@ class ResetPasswordScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children:  [
              Text(
-               "Reset Password",
+               "Check Email",
                 style: Styles.boldtextStyle20,
               ),
 
@@ -50,39 +49,30 @@ class ResetPasswordScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const CustomTextTitleAuth(text: "New Password"),
+                  const CustomTextTitleAuth(text: "Success Sign Up"),
                   const SizedBox(
                     height: 10,
                   ),
                   const CustomTextBodyAuth(
                       text:
-                          'Please Enter New Password'),
+                          'Please Enter Your Email Address To Recive A Verification Code'),
                   const SizedBox(
                     height: 30,
                   ),       
-                  CustomTextFormField(
-                    textEditingController: controller.password,
-                    name: "Password",
-                    hintText: 'Enter Your Password',
-                    icon: const Icon(Icons.lock_outline),
-                  ),
-                  const SizedBox(
-                    height: 25,
-                  ),
                    CustomTextFormField(
-                    textEditingController: controller.password,
-                    name: "Re Password",
-                    hintText: 'Re Enter Your Password',
-                    icon: const Icon(Icons.lock_outline),
+                    textEditingController: controller.email,
+                    name: "Email",
+                    hintText: 'Enter Your Email',
+                    icon: const Icon(Icons.email_outlined),
                   ),
                   
                   const SizedBox(
                     height: 35,
                   ),
                   CustomButtonAuth(
-                    text22: "Save",
+                    text22: "Check",
                     onPressed: () {
-                      controller.goToSuccessResetPasswordScreen();
+                      controller.goToSuccessSignUp();
                     },
                   ),
                   const SizedBox(

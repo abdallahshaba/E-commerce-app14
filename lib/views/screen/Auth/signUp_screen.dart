@@ -28,6 +28,7 @@ class SignUpScreen extends StatelessWidget {
                 CustomAppBarAuth(
                   text: 'Sign Up',
                   onTap: () {
+                    controller.signUp();
                   },
                 ),
                const SizedBox(
@@ -96,7 +97,10 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   CustomButtonAuth(
                     text22: "Sign Up",
-                    onPressed: () {},
+                    onPressed: () {
+                      controller.signUp();
+
+                    },
                   ),
                   const SizedBox(
                     height: 20,

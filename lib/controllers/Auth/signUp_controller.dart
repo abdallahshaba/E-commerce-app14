@@ -7,7 +7,7 @@ abstract class SignUpController extends GetxController {
  late TextEditingController password;
  late TextEditingController username;
  late TextEditingController phone;
-  signUpn();
+  signUp();
   goToSignInpPage();
 }
 
@@ -18,7 +18,9 @@ class SignUpControllerImp extends SignUpController {
   } // this function was done because i use the getx along
 
   @override
-  signUpn() {}
+  signUp() {
+    Get.offNamed(AppRouts.checkEmail);
+  }
   @override
   void onInit() {
     email = TextEditingController();
