@@ -27,7 +27,7 @@ class SignInScreen extends StatelessWidget {
                   height: 50,
                 ),
                 CustomAppBarAuth(
-                  text: "Sign In",
+                  text: "9".tr,
                   onTap: () {
                   },
                 ),

@@ -2,7 +2,7 @@ import 'package:e_commerce_app14/core/localization/local_controller.dart';
 import 'package:e_commerce_app14/core/localization/translation.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/routs.dart';
-import 'package:e_commerce_app14/views/screen/Auth/signin_screen.dart';
+import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,9 +21,10 @@ class MyApp extends StatelessWidget {
    LocalController controller = Get.put(LocalController());
     return GetMaterialApp(
       locale: controller.language,
+      theme: controller.appThem200,
       translations: ChangeLanguage() ,
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      home: const LanguageScreen(),
       routes: routes ,
     );
     

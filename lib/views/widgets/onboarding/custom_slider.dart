@@ -20,7 +20,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                       children: [
                         Text(
                           onBoardingList[index].title!,
-                          style: Styles.boldtextStyle20,
+                          style: Styles.boldtextStyle22,
                         ),
                         const SizedBox(
                           height: 30,
@@ -33,13 +33,13 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
                           fit: BoxFit.fill,
                         )),
                         const SizedBox(
-                          height: 30,
+                          height: 20,
                         ),
                         Container(
                           width: double.infinity,
                           alignment: Alignment.center,
                           child: Text(onBoardingList[index].body!,
-                              style: Styles.regulartextStyle16
+                              style: Styles.regulartextStyle18
                                   .copyWith(height: 2, color: AppColor.grey),
                               textAlign: TextAlign.center),
                         ),

@@ -11,7 +11,7 @@ class DotControllerOnBoarding extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<OnBoardingControllerImp>(
      builder: (controller) => Container(
-      padding: EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 40),
        child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
