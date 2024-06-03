@@ -1,4 +1,4 @@
-import 'package:e_commerce_app14/controllers/Auth/verifycode_controller.dart';
+import 'package:e_commerce_app14/controllers/Auth/verifycode_sign_up_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_textBody_Auth.dart';
@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-class VerifyCodeScreen extends StatelessWidget {
-  const VerifyCodeScreen({super.key});
+class VerifyCodeSignUpScreen extends StatelessWidget {
+  const VerifyCodeSignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    VerifyCodeControllerImp controller = Get.put(VerifyCodeControllerImp());
+    VerifyCodeSignUpControllerImp controller = Get.put(VerifyCodeSignUpControllerImp());
     return Scaffold(
       body: Column(
         children: [
@@ -71,7 +71,7 @@ class VerifyCodeScreen extends StatelessWidget {
                     },
                     //runs when every textfield is filled
                     onSubmit: (String verificationCode) {
-                      controller.goToResetPasswordScreen();
+                      controller.goToSuccessSignUp();
                     }, // end onSubmit
                   ),
                 ],

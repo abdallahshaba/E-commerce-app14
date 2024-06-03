@@ -72,7 +72,7 @@ class ChechEmailScreen extends StatelessWidget {
                   CustomButtonAuth(
                     text22: "Check",
                     onPressed: () {
-                      controller.goToSuccessSignUp();
+                      controller.goToVerifyCodeSignUpScreen();
                     },
                   ),
                   const SizedBox(

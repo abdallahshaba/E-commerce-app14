@@ -6,13 +6,13 @@ abstract class CheckEmailController extends GetxController {
  late TextEditingController email;
 
   checkemail();
-  goToSuccessSignUp();
+  goToVerifyCodeSignUpScreen();
 }
 
 class CheckEmailControllerImp extends CheckEmailController {
   @override
-  goToSuccessSignUp() {
-    Get.offNamed(AppRouts.successSignUp);
+  goToVerifyCodeSignUpScreen() {
+    Get.offNamed(AppRouts.verifyCodeSignUp);
   }
 
   @override
