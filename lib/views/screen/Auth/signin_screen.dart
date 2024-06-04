@@ -1,6 +1,7 @@
 import 'package:e_commerce_app14/controllers/Auth/signIn_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
+import 'package:e_commerce_app14/core/functions/alert_exit_app.dart';
 import 'package:e_commerce_app14/core/functions/valid_input.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_appBar_Auth.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_button_Auth.dart';
@@ -18,7 +19,10 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SignInControllerImp controller = Get.put(SignInControllerImp());
     return Scaffold(
-      body: Column(
+      // ignore: deprecated_member_use
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: Column(
         children: [
           Container(
             color: AppColor.kBackgroundColor,
@@ -127,6 +131,8 @@ class SignInScreen extends StatelessWidget {
           )
         ],
       ),
+
+        )
     );
   }
 }
