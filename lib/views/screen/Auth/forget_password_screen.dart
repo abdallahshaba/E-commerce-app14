@@ -60,6 +60,10 @@ class ForgerPasswordScreen extends StatelessWidget {
                     height: 30,
                   ),       
                    CustomTextFormField(
+                     // ignore: body_might_complete_normally_nullable
+                     validator: (value) {
+                      
+                    },
                     textEditingController: controller.email,
                     name: "Email",
                     hintText: 'Enter Your Email',

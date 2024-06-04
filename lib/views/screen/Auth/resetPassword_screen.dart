@@ -61,6 +61,10 @@ class ResetPasswordScreen extends StatelessWidget {
                     height: 30,
                   ),       
                   CustomTextFormField(
+                     // ignore: body_might_complete_normally_nullable
+                     validator: (value) {
+                      
+                    },
                     textEditingController: controller.password,
                     name: "Password",
                     hintText: 'Enter Your Password',
@@ -70,6 +74,10 @@ class ResetPasswordScreen extends StatelessWidget {
                     height: 25,
                   ),
                    CustomTextFormField(
+                     // ignore: body_might_complete_normally_nullable
+                     validator: (value) {
+                      
+                    },
                     textEditingController: controller.password,
                     name: "Re Password",
                     hintText: 'Re Enter Your Password',

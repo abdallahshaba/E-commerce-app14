@@ -10,9 +10,17 @@ abstract class CheckEmailController extends GetxController {
 }
 
 class CheckEmailControllerImp extends CheckEmailController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   @override
   goToVerifyCodeSignUpScreen() {
-    Get.offNamed(AppRouts.verifyCodeSignUp);
+    var formData = formState.currentState;
+    if(formData!.validate()){
+      print("Valid");
+      Get.offNamed(AppRouts.verifyCodeSignUp);
+    }else{
+      print("Not Valid");
+    }
+    
   }
 
   @override

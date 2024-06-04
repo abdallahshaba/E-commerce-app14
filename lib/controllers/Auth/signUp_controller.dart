@@ -12,6 +12,8 @@ abstract class SignUpController extends GetxController {
 }
 
 class SignUpControllerImp extends SignUpController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
+
   @override
   goToSignInpPage() {
     Get.offAllNamed(AppRouts.signIn);
@@ -19,7 +21,14 @@ class SignUpControllerImp extends SignUpController {
 
   @override
   signUp() {
-    Get.offNamed(AppRouts.checkEmail);
+    var formData = formState.currentState;
+    if(formData!.validate()){
+      print("Valid");
+      Get.offNamed(AppRouts.checkEmail);
+    }else{
+      print("Not Valid");
+    }
+    
   }
   @override
   void onInit() {

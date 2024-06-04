@@ -11,13 +11,26 @@ abstract class SignInController extends GetxController {
 }
 
 class SignInControllerImp extends SignInController {
+    
+    GlobalKey<FormState> formState = GlobalKey(); 
+
   @override
   goToSignUpPage() {
     Get.toNamed(AppRouts.signUp);
   }
 
   @override
-  signIn() {}
+  signIn() {
+    var formData = formState.currentState;
+    if(formData!.validate()){
+      // ignore: avoid_print
+      print("Valid");
+    }
+    else{
+      // ignore: avoid_print
+      print("Not Valid");
+    }
+  }
   @override
   void onInit() {
     email = TextEditingController();
