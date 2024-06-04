@@ -61,6 +61,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     height: 30,
                   ),       
                   CustomTextFormField(
+                    isNumber: false,
                      // ignore: body_might_complete_normally_nullable
                      validator: (value) {
                       
@@ -74,6 +75,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     height: 25,
                   ),
                    CustomTextFormField(
+                    isNumber: false,
                      // ignore: body_might_complete_normally_nullable
                      validator: (value) {
                       

@@ -60,6 +60,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 30,
                     ),
                      CustomTextFormField(
+                      isNumber: false,
                       // ignore: body_might_complete_normally_nullable
                       validator: (value) {
                         return validInput(value!, 2, 20, "username");
@@ -74,6 +75,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 25,
                     ),
                      CustomTextFormField(
+                      isNumber: false,
                        validator: (value) {
                         return validInput(value!, 5, 100, "email");
                       },
@@ -87,6 +89,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 25,
                     ),
                      CustomTextFormField(
+                      isNumber: true,
                        validator: (value) {
                          return validInput(value!, 4, 11, "phone");
                       },
@@ -100,6 +103,7 @@ class SignUpScreen extends StatelessWidget {
                       height: 25,
                     ),
                      CustomTextFormField(
+                      isNumber: false,
                        // ignore: body_might_complete_normally_nullable
                        validator: (value) {
                         return validInput(value!, 4, 11, "password");

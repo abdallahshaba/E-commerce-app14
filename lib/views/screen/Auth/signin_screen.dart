@@ -64,6 +64,7 @@ class SignInScreen extends StatelessWidget {
                       height: 30,
                     ),
                      CustomTextFormField(
+                      isNumber: false,
                        validator: (value) {
                         return validInput(value!, 5, 100, "email");
                       },
@@ -76,6 +77,7 @@ class SignInScreen extends StatelessWidget {
                       height: 25,
                     ),
                      CustomTextFormField(
+                      isNumber: false,
                       validator: (value) {
                         return validInput(value!, 5, 15, "password");
                       },

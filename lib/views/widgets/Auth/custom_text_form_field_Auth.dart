@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, required this.name, required this.icon, required this.hintText, required this.textEditingController, required this.validator, });
+  const CustomTextFormField({super.key, required this.name, required this.icon, required this.hintText, required this.textEditingController, required this.validator, required this.isNumber, });
   final String name;
   final Icon icon;
   final String hintText;
   final TextEditingController textEditingController;
   final String? Function(String?) validator;
+  final bool isNumber;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+                  keyboardType: isNumber? const TextInputType.numberWithOptions(decimal: true) : TextInputType.text,
                   validator: validator,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
