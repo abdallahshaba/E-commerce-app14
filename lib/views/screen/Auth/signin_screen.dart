@@ -80,7 +80,11 @@ class SignInScreen extends StatelessWidget {
                     const SizedBox(
                       height: 25,
                     ),
-                     CustomTextFormField(
+                    GetBuilder<SignInControllerImp>(builder: (controller) =>  CustomTextFormField(
+                      onTapIcon: () {
+                        controller.showPassword();
+                      },
+                      obscureText: controller.isShowPassword,
                       isNumber: false,
                       validator: (value) {
                         return validInput(value!, 5, 15, "password");
@@ -89,7 +93,7 @@ class SignInScreen extends StatelessWidget {
                       name: "Password",
                       hintText: 'Enter Your Password',
                       icon: const Icon(Icons.lock_outline),
-                    ),
+                    ),),
                     const SizedBox(
                       height: 10,
                     ),

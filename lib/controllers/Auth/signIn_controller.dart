@@ -3,16 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class SignInController extends GetxController {
- late TextEditingController email;
- late TextEditingController password;
+
+
   signIn();
   goToSignUpPage();
   goToForgetPasswordPage();
 }
 
 class SignInControllerImp extends SignInController {
-    
-    GlobalKey<FormState> formState = GlobalKey(); 
+  GlobalKey<FormState> formState = GlobalKey();
+    late TextEditingController email;
+    late TextEditingController password;
+
+   bool? isShowPassword = true;
+
+   showPassword(){
+    isShowPassword = isShowPassword == true ? false : true;
+   }
 
   @override
   goToSignUpPage() {
@@ -22,32 +29,32 @@ class SignInControllerImp extends SignInController {
   @override
   signIn() {
     var formData = formState.currentState;
-    if(formData!.validate()){
+    if (formData!.validate()) {
       // ignore: avoid_print
       print("Valid");
-    }
-    else{
+    } else {
       // ignore: avoid_print
       print("Not Valid");
     }
   }
+
   @override
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();
-
   }
+
   @override
   goToForgetPasswordPage() {
     Get.toNamed(AppRouts.forgetPassword);
   }
-  
+
   @override
   void dispose() {
     email.dispose();
     password.dispose();
-    
+
     super.dispose();
   }
 }
