@@ -2,6 +2,7 @@ import 'package:e_commerce_app14/controllers/Auth/signIn_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/alert_exit_app.dart';
+import 'package:e_commerce_app14/core/functions/check_internet.dart';
 import 'package:e_commerce_app14/core/functions/valid_input.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_appBar_Auth.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_button_Auth.dart';
@@ -12,9 +13,26 @@ import 'package:e_commerce_app14/views/widgets/Auth/text_signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignInScreen extends StatelessWidget {
+class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
+  @override
+  State<SignInScreen> createState() => _SignInScreenState();
+}
+
+class _SignInScreenState extends State<SignInScreen> {
+  var res;
+
+  initialData () async {
+    res = await checkInternet();
+    print(res);
+  }
+
+  @override
+  void initState() {
+    initialData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     SignInControllerImp controller = Get.put(SignInControllerImp());
