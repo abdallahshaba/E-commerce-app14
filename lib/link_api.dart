@@ -2,6 +2,6 @@
 
 class AppLink {
 
-  static const String server = "localhost/e-commerceApp";
-  static const String test = "$server/test.php";
+static const String linkServerName = "http://10.0.2.2/e-commerceApp";
+  static const String test = "$linkServerName/test.php";
 }

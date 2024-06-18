@@ -11,14 +11,14 @@ class TestDataConteoller extends GetxController {
 
   late StatusRequest statusRequest;
 
-  getData2 ()async{
+  getData2 () async {
     statusRequest = StatusRequest.loading;
     var response = await testData.getData();
 
     statusRequest = handlingData(response);
 
     if (StatusRequest.success == statusRequest) {
-      data.addAll(response);
+      data.addAll(response['content']);
     }
     update();
 
