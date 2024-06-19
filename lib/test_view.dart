@@ -1,5 +1,5 @@
 import 'package:e_commerce_app14/controllers/test_controller.dart';
-import 'package:e_commerce_app14/core/class/status_request.dart';
+import 'package:e_commerce_app14/core/class/handling_data_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,23 +15,16 @@ class TestView extends StatelessWidget {
       ),
       body: GetBuilder<TestDataConteoller>  (
         builder: (controller) {
-          if (controller.statusRequest== StatusRequest.loading) {
-            return const Center(child: Text("Loading..."),);
-          }
-          else if (controller.statusRequest== StatusRequest.offlineFailure){
-            return const Center(child: Text("Offline Failure"),);
-          }
-          else if (controller.statusRequest== StatusRequest.serverFaliure){
-            return const Center(child: Text("Server Failure"),);
-          }
-          else {
-            return ListView.builder(
+         return HandlingDataView(
+          statusRequest: controller.statusRequest,
+          
+           widget:  ListView.builder(
               itemCount: controller.data.length,
               itemBuilder: (context , index){
                 return Text("${controller.data}");
               }
-              );
-          }
+              )
+           );
         }
          ),
     );

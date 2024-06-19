@@ -18,7 +18,11 @@ class TestDataConteoller extends GetxController {
     statusRequest = handlingData(response);
 
     if (StatusRequest.success == statusRequest) {
-      data.addAll(response['content']);
+      if (response['status'] == 'success') {
+        data.addAll(response['content']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
     }
     update();
 
