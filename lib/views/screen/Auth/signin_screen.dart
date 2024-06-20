@@ -85,32 +85,32 @@ class _SignInScreenState extends State<SignInScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                     CustomTextFormField(
+                     CustomTextFormAuth(
                       isNumber: false,
-                       validator: (value) {
+                       valid: (value) {
                         return validInput(value!, 5, 100, "email");
                       },
-                      textEditingController: controller.email ,
-                      name: "Email",
-                      hintText: 'Enter Your Email',
-                      icon: const Icon(Icons.email_outlined),
+                      mycontroller: controller.email ,
+                      labeltext: "Email",
+                      hinttext: 'Enter Your Email',
+                      iconData: Icons.email_outlined,
                     ),
                     const SizedBox(
                       height: 25,
                     ),
-                    GetBuilder<SignInControllerImp>(builder: (controller) =>  CustomTextFormField(
+                    GetBuilder<SignInControllerImp>(builder: (controller) =>  CustomTextFormAuth(
                       onTapIcon: () {
                         controller.showPassword();
                       },
                       obscureText: controller.isShowPassword,
                       isNumber: false,
-                      validator: (value) {
+                      valid: (value) {
                         return validInput(value!, 5, 15, "password");
                       },
-                      textEditingController: controller.password ,
-                      name: "Password",
-                      hintText: 'Enter Your Password',
-                      icon: const Icon(Icons.lock_outline),
+                      mycontroller: controller.password ,
+                      labeltext: "Password",
+                      hinttext: 'Enter Your Password',
+                      iconData: Icons.lock_outline,
                     ),),
                     const SizedBox(
                       height: 10,

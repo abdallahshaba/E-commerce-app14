@@ -62,16 +62,16 @@ class ForgerPasswordScreen extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),       
-                     CustomTextFormField(
+                     CustomTextFormAuth(
                       isNumber: false,
                        // ignore: body_might_complete_normally_nullable
-                       validator: (value) {
+                       valid: (value) {
                         return validInput(value!, 5, 100, "email");
                       },
-                      textEditingController: controller.email,
-                      name: "Email",
-                      hintText: 'Enter Your Email',
-                      icon: const Icon(Icons.email_outlined),
+                      mycontroller: controller.email,
+                      labeltext: "Email",
+                      hinttext: 'Enter Your Email',
+                      iconData: Icons.email_outlined,
                     ),
                     
                     const SizedBox(

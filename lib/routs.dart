@@ -1,5 +1,5 @@
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
-import 'package:e_commerce_app14/test_view.dart';
+import 'package:e_commerce_app14/core/middleware/my_middleware.dart';
 //import 'package:e_commerce_app14/test.dart';
 import 'package:e_commerce_app14/text_Packeages.dart';
 import 'package:e_commerce_app14/views/screen/Auth/forget_password_screen.dart';
@@ -10,16 +10,17 @@ import 'package:e_commerce_app14/views/screen/Auth/success_reset_password.dart';
 import 'package:e_commerce_app14/views/screen/Auth/success_signUp.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifyCode_signUp_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifycode_screen.dart';
+import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:e_commerce_app14/views/screen/onBoarding/onBoarding_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: "/", page: () => const TestView()),
-  //  GetPage(name: "/", page: () => const LanguageScreen(), middlewares: [
-  //    MyMiddleWare(),
-  //  ] ),
+  //GetPage(name: "/", page: () => const TestView()),
+   GetPage(name: "/", page: () => const LanguageScreen(), middlewares: [
+     MyMiddleWare(),
+   ] ),
   GetPage(name: AppRouts.signIn, page: () => const SignInScreen()),
   GetPage(name: AppRouts.signUp, page: () => const SignUpScreen()),
   GetPage(name: AppRouts.forgetPassword, page: () => const ForgerPasswordScreen()),

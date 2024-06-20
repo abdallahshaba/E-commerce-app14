@@ -1,57 +1,51 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key,
-   required this.name,
-   required this.icon,
-   required this.hintText,
-   required this.textEditingController,
-   required this.validator,
-   required this.isNumber,
-   this.obscureText,
-   this.onTapIcon
-         });
-
-
-  final String name;
-  final Icon icon;
-  final String hintText;
-  final TextEditingController textEditingController;
-  final String? Function(String?) validator;
+class CustomTextFormAuth extends StatelessWidget {
+  final String hinttext;
+  final String labeltext;
+  final IconData iconData;
+  final TextEditingController? mycontroller;
+  final String? Function(String?) valid;
   final bool isNumber;
   final bool? obscureText;
   final void Function()? onTapIcon;
+
+  const CustomTextFormAuth(
+      {Key? key,
+      this.obscureText,
+      this.onTapIcon,
+      required this.hinttext,
+      required this.labeltext,
+      required this.iconData,
+      required this.mycontroller,
+      required this.valid,
+      required this.isNumber})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-                  obscureText: obscureText == null || obscureText== false? false : true ,
-                  keyboardType: isNumber? const TextInputType.numberWithOptions(decimal: true) : TextInputType.text,
-                  validator: validator,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(
-                        color: Colors.blue
-                      )
-                    ),
-                    hintText: hintText,
-                    hintStyle: const TextStyle(color: Color.fromARGB(255, 142, 134, 134) , fontSize: 12),
-                    floatingLabelBehavior: FloatingLabelBehavior.always,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10 , horizontal: 38),
-                    label: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child:  Text(name)),
-                    suffixIcon: InkWell(
-                      child: icon,
-                      onTap: onTapIcon
-                      ),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))
-                  ),
-                );
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: TextFormField(
+        keyboardType: isNumber
+            ? const TextInputType.numberWithOptions(decimal: true)
+            : TextInputType.text,
+        validator: valid,
+        controller: mycontroller,
+        obscureText: obscureText == null || obscureText == false  ? false : true,
+        decoration: InputDecoration(
+            hintText: hinttext,
+            hintStyle: const TextStyle(fontSize: 14),
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+            label: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 9),
+                child: Text(labeltext)),
+            suffixIcon: InkWell(child: Icon(iconData), onTap: onTapIcon),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+      ),
+    );
   }
 }

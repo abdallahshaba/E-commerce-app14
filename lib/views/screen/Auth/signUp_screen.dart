@@ -11,9 +11,14 @@ import 'package:e_commerce_app14/views/widgets/Auth/text_signIn.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     SignUpControllerImp controller = Get.put(SignUpControllerImp());
@@ -21,129 +26,127 @@ class SignUpScreen extends StatelessWidget {
       // ignore: deprecated_member_use
       body: WillPopScope(
         onWillPop: alertExitApp,
-        child:Column(
-        children: [
-          Container(
-            color: AppColor.kBackgroundColor,
-            child:  Column(
-              children: [
-               const SizedBox(
-                  height: 50,
-                ),
-                CustomAppBarAuth(
-                  text: 'Sign Up',
-                  onTap: () {
-                    controller.signUp();
-                  },
-                ),
-               const SizedBox(
-                  height: 15,
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Form(
-                key: controller.formState,
-                child: ListView(
-                  padding: EdgeInsets.zero,
+        child: Form(
+          key: controller.formstate,
+          child: Column(
+            children: [
+              Container(
+                color: AppColor.kBackgroundColor,
+                child:  Column(
                   children: [
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const CustomTextTitleAuth(text: "Welcome Back"),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const CustomTextBodyAuth(
-                        text:
-                            'Sign Up with Your Email And Password OR Continue with Social Media'),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                     CustomTextFormField(
-                      isNumber: false,
-                      // ignore: body_might_complete_normally_nullable
-                      validator: (value) {
-                        return validInput(value!, 2, 20, "username");
-                      },
-                      textEditingController: controller.username,
-                      name: "Username",
-                      hintText: 'Enter Your Username',
-                      icon: const Icon(Icons.person_outline_outlined),
-                    ),
-                    
-                    const SizedBox(
-                      height: 25,
-                    ),
-                     CustomTextFormField(
-                      isNumber: false,
-                       validator: (value) {
-                        return validInput(value!, 5, 100, "email");
-                      },
-                      textEditingController: controller.email,
-                      name: "Email",
-                      hintText: 'Enter Your Email',
-                      icon: const Icon(Icons.email_outlined),
-                    ),
-                    
-                    const SizedBox(
-                      height: 25,
-                    ),
-                     CustomTextFormField(
-                      isNumber: true,
-                       validator: (value) {
-                         return validInput(value!, 4, 11, "phone");
-                      },
-                      textEditingController: controller.phone,
-                      name: "Phone",
-                      hintText: 'Enter Your Phone',
-                      icon: const Icon(Icons.phone_android_outlined),
-                    ),
-                    
-                    const SizedBox(
-                      height: 25,
-                    ),
-                     CustomTextFormField(
-                      isNumber: false,
-                       // ignore: body_might_complete_normally_nullable
-                       validator: (value) {
-                        return validInput(value!, 4, 11, "password");
-                      },
-                      textEditingController: controller.password,
-                      name: "Password",
-                      hintText: 'Enter Your Password',
-                      icon: const Icon(Icons.lock_outline),
-                    ),
-                    const SizedBox(
+                   const SizedBox(
                       height: 50,
                     ),
-                    CustomButtonAuth(
-                      text22: "Sign Up",
-                      onPressed: () {
-                        controller.signUp();
-                
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                     CustomTextSignInOrSignUp(
+                    CustomAppBarAuth(
+                      text: 'Sign Up',
                       onTap: () {
-                        controller.goToSignInpPage();
                       },
-                      text1: " Already have an account?",
-                      text2: "  Sign In",
-                    )
+                    ),
+                   const SizedBox(
+                      height: 15,
+                    ),
                   ],
                 ),
               ),
-            ),
-          )
-        ],
-      ),
-     ) );
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                    children: [
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const CustomTextTitleAuth(text: "Welcome Back"),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const CustomTextBodyAuth(
+                          text:
+                              'Sign Up with Your Email And Password OR Continue with Social Media'),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                       CustomTextFormAuth(
+                        isNumber: false,
+                        // ignore: body_might_complete_normally_nullable
+                        valid: (value) {
+                          return validInput(value!, 2, 20, "username");
+                        },
+                        mycontroller: controller. username,
+                        labeltext: "Username",
+                        hinttext: 'Enter Your Username',
+                        iconData:  Icons.person_search_rounded
+                      ),
+                      
+                      const SizedBox(
+                        height: 15,
+                      ),
+                       CustomTextFormAuth(
+                        isNumber: false,
+                         valid: (value) {
+                          return validInput(value!, 5, 100, "email");
+                        },
+                        mycontroller: controller. email,
+                        labeltext: "Email",
+                        hinttext: 'Enter Your Email',
+                        iconData: Icons.email_outlined,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                       CustomTextFormAuth(
+                        isNumber: false,
+                         // ignore: body_might_complete_normally_nullable
+                         valid: (value) {
+                          return validInput(value!, 2, 11, "password");
+                        },
+                        mycontroller: controller. password,
+                        labeltext: "Password",
+                        hinttext: 'Enter Your Password',
+                        iconData: Icons.lock_outline,
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                       CustomTextFormAuth(
+                        isNumber: false,
+                         // ignore: body_might_complete_normally_nullable
+                         valid: (value) {
+                          return validInput(value!, 2, 11, "phone");
+                        },
+                        mycontroller: controller. phone,
+                        labeltext: "Phone",
+                        hinttext: 'Enter Your Phone',
+                        iconData: Icons.phone_android_outlined,
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      CustomButtonAuth(
+                        text22: "Sign Up",
+                        onPressed: () async {
+                         await controller.signUp();
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                       CustomTextSignInOrSignUp(
+                        onTap: () {
+                          controller.goToSignIn();
+                        },
+                        text1: " Already have an account?",
+                        text2: "  Sign In",
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+                  ),
+        ),
+        ),
+     );
   }
 }

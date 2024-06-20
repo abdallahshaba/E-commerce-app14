@@ -60,30 +60,30 @@ class ResetPasswordScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),       
-                  CustomTextFormField(
+                  CustomTextFormAuth(
                     isNumber: false,
                      // ignore: body_might_complete_normally_nullable
-                     validator: (value) {
+                     valid: (value) {
                       
                     },
-                    textEditingController: controller.password,
-                    name: "Password",
-                    hintText: 'Enter Your Password',
-                    icon: const Icon(Icons.lock_outline),
+                    mycontroller: controller.password,
+                    labeltext: "Password",
+                    hinttext: 'Enter Your Password',
+                    iconData: Icons.lock_outline,
                   ),
                   const SizedBox(
                     height: 25,
                   ),
-                   CustomTextFormField(
+                   CustomTextFormAuth(
                     isNumber: false,
                      // ignore: body_might_complete_normally_nullable
-                     validator: (value) {
+                     valid: (value) {
                       
                     },
-                    textEditingController: controller.password,
-                    name: "Re Password",
-                    hintText: 'Re Enter Your Password',
-                    icon: const Icon(Icons.lock_outline),
+                    mycontroller: controller.password,
+                    labeltext: "Re Password",
+                    hinttext: 'Re Enter Your Password',
+                    iconData: Icons.lock_outline,
                   ),
                   
                   const SizedBox(
