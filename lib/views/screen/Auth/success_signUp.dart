@@ -24,7 +24,8 @@ class SuccessSignUpScreen extends StatelessWidget {
         child:  Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           const Center(child: Icon(Icons.check_circle_outline, size: 150 , color: AppColor.kPrimaryColor,)),
+            SizedBox(height: 90,),
+           const Center(child: Icon(Icons.check_circle_outline, size: 190 , color: AppColor.kPrimaryColor,)),
            const Text("Done" , style: Styles.boldtextStyle24,),
            const Spacer(),
              Container(

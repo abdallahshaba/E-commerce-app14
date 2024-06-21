@@ -96,7 +96,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       iconData: Icons.email_outlined,
                     ),
                     const SizedBox(
-                      height: 25,
+                      height: 15,
                     ),
                     GetBuilder<SignInControllerImp>(builder: (controller) =>  CustomTextFormAuth(
                       onTapIcon: () {

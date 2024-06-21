@@ -1,4 +1,5 @@
 import 'package:e_commerce_app14/controllers/Auth/signUp_controller.dart';
+import 'package:e_commerce_app14/core/class/handling_data_view.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/functions/alert_exit_app.dart';
 import 'package:e_commerce_app14/core/functions/valid_input.dart';
@@ -21,18 +22,19 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+     Get.put(SignUpControllerImp());
     return Scaffold(
       // ignore: deprecated_member_use
       body: WillPopScope(
         onWillPop: alertExitApp,
-        child: Form(
-          key: controller.formstate,
-          child: Column(
-            children: [
-              Container(
-                color: AppColor.kBackgroundColor,
-                child:  Column(
+        child: GetBuilder<SignUpControllerImp> (builder: (controller) {
+          return HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: Container(
+              color: AppColor.kBackgroundColor,
+              child:  Form(
+                key: controller.formstate,
+                child: Column(
                   children: [
                    const SizedBox(
                       height: 50,
@@ -45,21 +47,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                    const SizedBox(
                       height: 15,
                     ),
-                  ],
-                ),
-              ),
-              Expanded(
+                    Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
                   child: ListView(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsets.zero ,
                     children: [
                       const SizedBox(
                         height: 10,
                       ),
                       const CustomTextTitleAuth(text: "Welcome Back"),
                       const SizedBox(
-                        height: 10,
+                        height: 10 ,
                       ),
                       const CustomTextBodyAuth(
                           text:
@@ -142,11 +141,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],
                   ),
                 ),
-              )
-            ],
-                  ),
-        ),
-        ),
-     );
+                            )
+                  ],
+                ),
+              ),
+            ),
+            );
+        },)
+            
+    
+                ),
+        );
   }
 }
