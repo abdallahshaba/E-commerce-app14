@@ -12,7 +12,7 @@ class AppRouts {
   static const String checkEmail = '/checkemail';
   static const String verifyCodeSignUp = '/verifyCodesignup';
   static const String testPage = '/test';
-
+  static const String failedScreen = '/failedScreen';
   //========================= Home ===========================//
 
   static const String homeScreen = '/homeScreen';

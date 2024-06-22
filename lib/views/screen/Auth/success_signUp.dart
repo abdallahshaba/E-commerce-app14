@@ -1,9 +1,11 @@
 import 'package:e_commerce_app14/controllers/Auth/success_signup_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
+import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/views/widgets/Auth/custom_Button_Auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class SuccessSignUpScreen extends StatelessWidget {
   const SuccessSignUpScreen({super.key});
@@ -25,7 +27,7 @@ class SuccessSignUpScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 90,),
-           const Center(child: Icon(Icons.check_circle_outline, size: 190 , color: AppColor.kPrimaryColor,)),
+            Center(child: Lottie.asset(AppImageAsset.success, height: 220, width: 300),),
            const Text("Done" , style: Styles.boldtextStyle24,),
            const Spacer(),
              Container(

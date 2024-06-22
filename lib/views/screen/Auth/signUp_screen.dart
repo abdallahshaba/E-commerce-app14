@@ -28,7 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: WillPopScope(
         onWillPop: alertExitApp,
         child: GetBuilder<SignUpControllerImp> (builder: (controller) {
-          return HandlingDataView(
+          return HandlingDataRequest(
             statusRequest: controller.statusRequest,
             widget: Container(
               color: AppColor.kBackgroundColor,

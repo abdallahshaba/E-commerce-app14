@@ -43,6 +43,5 @@ class HandlingDataRequest extends StatelessWidget {
       Center(child: Lottie.asset(AppImageAsset.server, width: 300 , height: 300))  
       :
       widget;
-
   }
 }

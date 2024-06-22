@@ -1,5 +1,7 @@
+import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/check_internet.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class TestPages extends StatefulWidget {
   const TestPages({super.key});
@@ -30,9 +32,11 @@ class _TestPagesState extends State<TestPages> {
         title: Text("Test Page"),
       ),
       body: Container(
-        child: Center(
-          child: Text("Test" , style: TextStyle(fontSize: 30),),
-        ),
+        child: ListView(
+          children: [
+            Lottie.asset(AppImageAsset.f),
+          ],
+        )
       ),
     );
   }

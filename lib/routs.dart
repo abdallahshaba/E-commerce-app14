@@ -18,7 +18,7 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 
 List<GetPage<dynamic>>? routes = [
-  //GetPage(name: "/", page: () => const TestView()),
+  //GetPage(name: "/", page: () => const TestPages()),
    GetPage(name: "/", page: () => const LanguageScreen(), middlewares: [
      MyMiddleWare(),
    ] ),
@@ -32,7 +32,6 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRouts.verifyCodeSignUp, page: () => const VerifyCodeSignUpScreen()),
   GetPage(name: AppRouts.onBoarding, page: () => const OnBoardingScreen()),
   GetPage(name: AppRouts.testPakeages, page: () => const TestPakeages()),
-
   //============================ Home ===================================
   GetPage(name: AppRouts.homeScreen, page: () => const HomeScreen()),
 

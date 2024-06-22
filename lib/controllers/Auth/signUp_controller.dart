@@ -2,10 +2,12 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
+import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/auth/sign_up_remot.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 abstract class SignUpController extends GetxController {
   signUp();
@@ -40,13 +42,16 @@ class SignUpControllerImp extends SignUpController {
           // data.addAll(response['data']);
           Get.offNamed(AppRouts.verifyCodeSignUp);
         } else {
-           Get.defaultDialog(
-              title: "ُWarning", titleStyle: const TextStyle(
-                fontWeight: FontWeight.bold, color: AppColor.kPrimaryColor), 
-                middleText: "Phone Number Or Email Already Exists" , middleTextStyle: const TextStyle(
-                fontWeight: FontWeight.bold) );
-          statusRequest = StatusRequest.failure;
-          print(response);
+              Get.defaultDialog(
+              title: "ُWarning",
+              titleStyle: const TextStyle(
+                  fontWeight: FontWeight.bold, color: AppColor.kPrimaryColor),
+              middleText: "Phone Number Or Email Already Exists",
+              middleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
+              actions: [
+                Lottie.asset(AppImageAsset.stop, height: 220, width: 300)
+              ]);
+              statusRequest = StatusRequest.failure;
         }
       }
       update();
