@@ -98,7 +98,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         isNumber: false,
                          // ignore: body_might_complete_normally_nullable
                          valid: (value) {
-                          return validInput(value!, 2, 11, "password");
+                          return validInput(value!, 2, 20, "password");
                         },
                         mycontroller: controller. password,
                         labeltext: "Password",

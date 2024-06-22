@@ -1,4 +1,5 @@
 import 'package:e_commerce_app14/controllers/Auth/signIn_controller.dart';
+import 'package:e_commerce_app14/core/class/handling_data_view.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/alert_exit_app.dart';
@@ -35,14 +36,15 @@ class _SignInScreenState extends State<SignInScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    SignInControllerImp controller = Get.put(SignInControllerImp());
+     Get.put(SignInControllerImp());
     return Scaffold(
       // ignore: deprecated_member_use
       body: WillPopScope(
         onWillPop: alertExitApp,
-        child: Column(
-        children: [
-          Container(
+        child: GetBuilder<SignInControllerImp>(builder: (controller) {
+          return HandlingDataRequest(
+            statusRequest: controller.statusRequest, 
+            widget: Container(
             color: AppColor.kBackgroundColor,
             child: Column(
               children: [
@@ -57,10 +59,7 @@ class _SignInScreenState extends State<SignInScreen> {
                const SizedBox(
                   height: 35,
                 ),
-              ],
-            ),
-          ),
-          Expanded(
+                Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: Form(
@@ -105,7 +104,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       obscureText: controller.isShowPassword,
                       isNumber: false,
                       valid: (value) {
-                        return validInput(value!, 5, 15, "password");
+                        return validInput(value!, 2, 20, "password");
                       },
                       mycontroller: controller.password ,
                       labeltext: "Password",
@@ -132,8 +131,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     CustomButtonAuth(
                       text22: "Sign In",
-                      onPressed: () {
-                        controller.signIn();
+                      onPressed: () async {
+                       await controller.signIn();
                       },
                     ),
                     const SizedBox(
@@ -151,10 +150,14 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
           )
-        ],
+              ],
+            ),
+          ),
+            );
+        },)
       ),
 
-        )
-    );
+        );
+  
   }
 }

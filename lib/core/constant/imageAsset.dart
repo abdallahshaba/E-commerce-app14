@@ -11,5 +11,10 @@ class AppImageAsset {
   static const String offline = '$routeLottie/offline.json';
   static const String noData = '$routeLottie/nodata.json';
   static const String server = '$routeLottie/server.json';
+  static const String one = '$routeLottie/1.json';
+  static const String two = '$routeLottie/2.json';
+  static const String three = '$routeLottie/3.json';
+  static const String four = '$routeLottie/4.json';
+
  // static const String onBoardingImageFour  = '$routeImage/onboardingfour.PNG';
 }

@@ -1,4 +1,5 @@
 enum StatusRequest {
+  noone,
   loading,
   success,
   failure,
