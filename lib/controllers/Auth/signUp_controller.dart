@@ -1,4 +1,3 @@
-
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
@@ -22,8 +21,7 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController password;
   late TextEditingController phone;
 
-   StatusRequest? statusRequest ;
-
+  StatusRequest? statusRequest;
   SignupData signupData = SignupData();
 
   List data = [];
@@ -34,24 +32,23 @@ class SignUpControllerImp extends SignUpController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await signupData.postdata(
-          username.text, password.text, email.text , phone.text);
-      print("=============================== Controller $response ");
+          username.text, password.text, email.text, phone.text);
+      print("====================================== Controller $response");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
-          // data.addAll(response['data']);
           Get.offNamed(AppRouts.verifyCodeSignUp);
         } else {
-              Get.defaultDialog(
+          Get.defaultDialog(
               title: "ُWarning",
               titleStyle: const TextStyle(
                   fontWeight: FontWeight.bold, color: AppColor.kPrimaryColor),
               middleText: "Phone Number Or Email Already Exists",
               middleTextStyle: const TextStyle(fontWeight: FontWeight.bold),
               actions: [
-                Lottie.asset(AppImageAsset.stop, height: 220, width: 300)
+                Lottie.asset(AppImageAsset.error2, height: 220, width: 300)
               ]);
-              statusRequest = StatusRequest.failure;
+          statusRequest = StatusRequest.failure;
         }
       }
       update();

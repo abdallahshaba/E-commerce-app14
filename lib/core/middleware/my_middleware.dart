@@ -1,5 +1,3 @@
-
-
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
@@ -12,11 +10,15 @@ class MyMiddleWare extends GetMiddleware {
   @override
   int? priority = 1;
 
-   MyServices services = Get.put(MyServices());
+  MyServices services = Get.put(MyServices());
   @override
-  RouteSettings? redirect(String? route){
-    if(services.sharedPreference.getString("onBoarding")== "1"){
+  RouteSettings? redirect(String? route) {
+     if (services.sharedPreference.getString("step") == "2") {
+      return const RouteSettings(name: AppRouts.homeScreen);
+    }
+    if (services.sharedPreference.getString("step") == "1") {
       return const RouteSettings(name: AppRouts.signIn);
     }
+    
   }
 }

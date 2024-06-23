@@ -3,6 +3,7 @@ import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/imageAsset.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
+import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/auth/sign_in_remot.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,8 +24,9 @@ class SignInControllerImp extends SignInController {
 
   SignInData signInData = SignInData();
 
+  MyServices myServices = Get.find();
+  
   bool? isShowPassword = true;
-
   showPassword() {
     isShowPassword = isShowPassword == true ? false : true;
   }
@@ -55,6 +57,15 @@ class SignInControllerImp extends SignInController {
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == 'success') {
+          myServices.sharedPreference
+              .setString("id", "${response['data']['id']}");
+          myServices.sharedPreference
+              .setString("username", "${response['data']['username']}");
+          myServices.sharedPreference
+              .setString("email", "${response['data']['email']}");
+          myServices.sharedPreference
+              .setString("phone", "${response['data']['phone']}");
+          myServices.sharedPreference.setString("step", "2");
           Future.delayed(const Duration(seconds: 2), () {
             Get.offAllNamed(AppRouts.homeScreen);
           });
@@ -73,7 +84,8 @@ class SignInControllerImp extends SignInController {
           statusRequest = StatusRequest.failure;
           update();
         }
-      }update();
+      }
+      update();
     } else {}
   }
 

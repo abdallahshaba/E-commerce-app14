@@ -131,8 +131,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     CustomButtonAuth(
                       text22: "Sign In",
-                      onPressed: () async {
-                       await controller.signIn();
+                      onPressed: ()  {
+                        controller.signIn();
                       },
                     ),
                     const SizedBox(
