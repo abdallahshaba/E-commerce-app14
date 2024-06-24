@@ -1,23 +1,50 @@
+import 'package:e_commerce_app14/core/class/status_request.dart';
+import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
+import 'package:e_commerce_app14/data/dataSource/remote/home/home_test_data.dart';
 import 'package:get/get.dart';
 
-class HomeController extends GetxController{
-
+abstract class HomeController extends GetxController {
+  initialData();
+  homeGetData();
 }
- 
-class HomeControllerImp extends HomeController{
+
+class HomeControllerImp extends HomeController {
+  HomeTestData homeTestData = HomeTestData(Get.find());
   MyServices myServices = Get.find();
+
+  List data = [];
+  List categories = [];
+
+  late StatusRequest statusRequest;
 
   String? userName;
   String? id;
-  
-  initialData (){
+
+  @override
+  initialData() {
     userName = myServices.sharedPreference.getString("username");
     id = myServices.sharedPreference.getString("id");
   }
 
   @override
+  homeGetData() async {
+    statusRequest = StatusRequest.loading;
+    var response = await homeTestData.getData();
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+        categories.addAll(response['categories']);
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  @override
   void onInit() {
+    homeGetData();
     initialData();
     super.onInit();
   }
