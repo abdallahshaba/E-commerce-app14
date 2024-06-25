@@ -33,6 +33,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRouts.onBoarding, page: () => const OnBoardingScreen()),
   GetPage(name: AppRouts.testPakeages, page: () => const TestPakeages()),
   //============================ Home ===================================
+  GetPage(name: AppRouts.home, page: () => const HomeScreen()),
   GetPage(name: AppRouts.homeScreen, page: () => const HomeScreen()),
 
 ];

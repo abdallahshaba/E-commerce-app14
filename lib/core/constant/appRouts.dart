@@ -15,5 +15,6 @@ class AppRouts {
   static const String failedScreen = '/failedScreen';
   //========================= Home ===========================//
 
+  static const String home = '/home';
   static const String homeScreen = '/homeScreen';
 }
