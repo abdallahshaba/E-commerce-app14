@@ -6,12 +6,12 @@ class CustomTextFormHome extends StatelessWidget {
   final IconData iconData;
   final TextEditingController? mycontroller;
   final bool? obscureText;
-  final void Function()? onTapIcon;
+  final void Function()? onPressedSearch;
 
   const CustomTextFormHome(
       {Key? key,
       this.obscureText,
-      this.onTapIcon,
+      this.onPressedSearch,
       required this.hinttext,
       required this.labeltext,
       required this.iconData,
@@ -34,7 +34,7 @@ class CustomTextFormHome extends StatelessWidget {
             label: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 9),
                 child: Text(labeltext)),
-            suffixIcon: InkWell(child: Icon(iconData), onTap: onTapIcon),
+            suffixIcon: InkWell(child: Icon(iconData), onTap: onPressedSearch),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
       ),
