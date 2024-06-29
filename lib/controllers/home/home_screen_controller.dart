@@ -18,13 +18,37 @@ class HomeScreenControllerImp extends HomeScreenController{
         Center(child: Text("Settings"),)
       ],
     ),
-       const Column(children: [Center(child: Text("Profile"),)
+       const Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(child: Text("Favorite"),)
       ],
     ),
-       const Column(children: [Center(child: Text("Favorite"),)
+       const Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(child: Text("Profile"),)
       ],
     ),
   ];
+
+    
+    List textPages = [
+      "Home",
+      "Settings",
+      "Favorite",
+      "Notify",
+    ];
+
+  
+   List icons = const [
+    Icons.home_outlined,
+    Icons.settings_outlined,
+    Icons.favorite_outline,
+    Icons.notifications_on_outlined,
+   ];
+
+
   @override
   changePage(int i) {
     currentPage = i;
