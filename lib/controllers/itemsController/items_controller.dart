@@ -6,12 +6,12 @@ import 'package:get/get.dart';
 abstract class ItemsController extends GetxController{
   initialData();
   changeCat(val);
-  getItems();
+  getItems(String id);
 }
 class ItemsControllerImp extends ItemsController{
   List categoriesInfo = [];
   int? selectedCat;
-
+  String? catId;
 
  ItemsData itemsData =ItemsData(Get.find());
   List data = [];
@@ -22,7 +22,7 @@ class ItemsControllerImp extends ItemsController{
   @override
   void onInit() {
     initialData();
-    getItems() ;
+    getItems(catId!) ;
     super.onInit();
   }
 
@@ -31,6 +31,7 @@ class ItemsControllerImp extends ItemsController{
   initialData() {
      categoriesInfo = Get.arguments['categoriesInfooo'];
      selectedCat = Get.arguments['selectedCattt'];
+     catId = Get.arguments['catId'];
   }
 
 
@@ -43,9 +44,9 @@ class ItemsControllerImp extends ItemsController{
   
 
   @override
-  getItems() async{
+  getItems(id) async{
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData();
+    var response = await itemsData.getData(id);
 
     statusRequest = handlingData(response);
 
