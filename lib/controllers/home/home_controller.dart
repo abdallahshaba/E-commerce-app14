@@ -1,4 +1,5 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
+import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/home/home_test_data.dart';
@@ -7,6 +8,7 @@ import 'package:get/get.dart';
 abstract class HomeController extends GetxController {
   initialData();
   homeGetData();
+  goToItems(List categoriesInfo , int selectedCat);
 }
 
 class HomeControllerImp extends HomeController {
@@ -44,10 +46,20 @@ class HomeControllerImp extends HomeController {
     update();
   }
 
+   @override
+  goToItems(categoriesInfo , selectedCat) {
+    Get.toNamed(AppRouts.itemsScreen , arguments: {
+      "categoriesInfooo" : categoriesInfo,
+      "selectedCattt" : selectedCat,
+    });
+  }
+
   @override
   void onInit() {
     homeGetData();
     initialData();
     super.onInit();
   }
+  
+ 
 }

@@ -18,7 +18,9 @@ class CustomeListCategories extends GetView<HomeControllerImp> {
           width: 10,
         ),
         itemBuilder: (context, index) {
-          return Categries(categoriesModel: CategoriesModel.fromJson(controller.categories[index]),);
+          return Categries(
+            i: index,
+            categoriesModel: CategoriesModel.fromJson(controller.categories[index]),);
         },
         itemCount: controller.categories.length,
         scrollDirection: Axis.horizontal,
@@ -27,32 +29,38 @@ class CustomeListCategories extends GetView<HomeControllerImp> {
   }
 }
 
-class Categries extends StatelessWidget {
-  const Categries({super.key, required this.categoriesModel});
+class Categries extends GetView<HomeControllerImp> {
+  const Categries( {super.key, required this.categoriesModel,required this.i,});
   final CategoriesModel categoriesModel;
+  final int i;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: AppColor.kPrimaryColor4),
-          width: 60,
-          height: 60,
-          child: SvgPicture.network(
-              "${AppLink.imageCategories}/${categoriesModel.categoriesImage}"
-              ),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(
-          "${categoriesModel.categoriesName}",
-          style: const TextStyle(fontSize: 13),
-        )
-      ],
+    return InkWell(
+      onTap: () {
+        controller.goToItems(controller.categories , i);
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: AppColor.kPrimaryColor4),
+            width: 60,
+            height: 60,
+            child: SvgPicture.network(
+                "${AppLink.imageCategories}/${categoriesModel.categoriesImage}"
+                ),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Text(
+            "${categoriesModel.categoriesName}",
+            style: const TextStyle(fontSize: 13),
+          )
+        ],
+      ),
     );
   }
 }

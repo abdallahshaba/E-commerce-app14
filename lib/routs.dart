@@ -11,6 +11,7 @@ import 'package:e_commerce_app14/views/screen/Auth/success_signUp.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifyCode_signUp_screen.dart';
 import 'package:e_commerce_app14/views/screen/Auth/verifycode_screen.dart';
 import 'package:e_commerce_app14/views/screen/home/home_screen.dart';
+import 'package:e_commerce_app14/views/screen/items/items_screen.dart';
 import 'package:e_commerce_app14/views/screen/language/language_screen.dart';
 import 'package:e_commerce_app14/views/screen/onBoarding/onBoarding_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -35,5 +36,6 @@ List<GetPage<dynamic>>? routes = [
   //============================ Home ===================================
   GetPage(name: AppRouts.home, page: () => const HomeScreen()),
   GetPage(name: AppRouts.homeScreen, page: () => const HomeScreen()),
+  GetPage(name: AppRouts.itemsScreen, page: () => const ItemsScreen()),
 
 ];
