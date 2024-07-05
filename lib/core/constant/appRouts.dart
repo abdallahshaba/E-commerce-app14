@@ -18,4 +18,5 @@ class AppRouts {
   static const String home = '/home';
   static const String homeScreen = '/homeScreen';
   static const String itemsScreen = '/itemsScreen';
+  static const String itemsDetails = '/itemsDetails';
 }

@@ -38,7 +38,7 @@ class Categries extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return  InkWell(
         onTap: () {
-          controller.changeCat(i);
+          controller.changeCat(i , categoriesModel.categoriesId!);
         },
         child: GetBuilder<ItemsControllerImp>(builder:(controller) => Container(
           decoration: controller.selectedCat==i? BoxDecoration(

@@ -1,12 +1,15 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
+import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/items_remote/items_remote.dart';
+import 'package:e_commerce_app14/data/models/items_model.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController{
   initialData();
-  changeCat(val);
+  changeCat(val , String catValue);
   getItems(String id);
+  goToItemsDetails(ItemsModel itemsModel);
 }
 class ItemsControllerImp extends ItemsController{
   List categoriesInfo = [];
@@ -37,8 +40,10 @@ class ItemsControllerImp extends ItemsController{
 
   
   @override
-  changeCat(val) {
+  changeCat(val , catValue) {
     selectedCat = val;
+    catId = catValue;
+     getItems(catId!) ;
     update();
   }
   
@@ -46,6 +51,7 @@ class ItemsControllerImp extends ItemsController{
   @override
   getItems(id) async{
     statusRequest = StatusRequest.loading;
+    data.clear();
     var response = await itemsData.getData(id);
 
     statusRequest = handlingData(response);
@@ -58,6 +64,13 @@ class ItemsControllerImp extends ItemsController{
       }
     }
     update();
+  }
+  
+  @override
+  goToItemsDetails(itemsModel) {
+    Get.toNamed(AppRouts.itemsDetails , arguments: {
+      "itemsModel" : itemsModel
+    });
   }
 
 }
