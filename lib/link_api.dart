@@ -17,4 +17,8 @@ static const String test = "$linkServerName/test.php";
   static const String home = "$linkServerName/home/home.php";
   //============================Home===============================//
   static const String items = "$linkServerName/itemss/view.php";
+ //============================Favorite===============================//
+  static const String addFavorite = "$linkServerName/favorite/add.php";
+  static const String removeFavorite = "$linkServerName/favorite/remove.php";
+
 } 

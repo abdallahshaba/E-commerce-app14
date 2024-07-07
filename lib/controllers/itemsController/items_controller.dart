@@ -1,6 +1,7 @@
 import 'package:e_commerce_app14/core/class/status_request.dart';
 import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/functions/handling_data_controller.dart';
+import 'package:e_commerce_app14/core/services/services.dart';
 import 'package:e_commerce_app14/data/dataSource/remote/items_remote/items_remote.dart';
 import 'package:e_commerce_app14/data/models/items_model.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,8 @@ class ItemsControllerImp extends ItemsController{
 
  ItemsData itemsData =ItemsData(Get.find());
   List data = [];
-
+   
+   MyServices myServices = Get.find();
   late StatusRequest statusRequest;
 
 
@@ -52,7 +54,7 @@ class ItemsControllerImp extends ItemsController{
   getItems(id) async{
     statusRequest = StatusRequest.loading;
     data.clear();
-    var response = await itemsData.getData(id);
+    var response = await itemsData.getData(id , myServices.sharedPreference.getString("id")!);
 
     statusRequest = handlingData(response);
 

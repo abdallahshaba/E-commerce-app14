@@ -7,14 +7,14 @@ import 'package:get/get.dart';
 // ignore: must_be_immutable
 class CustomAppBarHome extends StatelessWidget {
 
-   CustomAppBarHome({super.key,required this.hintText,required this.labeltext,required this.iconData,this.mycontroller, this.onPressedAccount, this.onPressedSearch,});
+   CustomAppBarHome({super.key,required this.hintText,required this.labeltext,required this.iconData,this.mycontroller, this.onPressedFavorite, this.onPressedSearch,});
 
 
   final String hintText;
   final String labeltext;
   final IconData iconData;
   final TextEditingController? mycontroller;
-  final void Function()? onPressedAccount;
+  final void Function()? onPressedFavorite;
   final void Function()? onPressedSearch;
 
   HomeControllerImp controller = Get.put(HomeControllerImp());
@@ -32,12 +32,12 @@ class CustomAppBarHome extends StatelessWidget {
                 style: Styles.regulartextStyle20,
               ),
               const Spacer(),
-              IconButton(
+                   IconButton(
                   padding: const EdgeInsets.all(0),
-                  onPressed: onPressedAccount,
+                  onPressed: onPressedFavorite,
                   icon: const Icon(
-                    Icons.account_circle,
-                    size: 35,
+                    Icons.favorite_border_outlined,
+                    size: 30,
                   ))
             ],
           ),

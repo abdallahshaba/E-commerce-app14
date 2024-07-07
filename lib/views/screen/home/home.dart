@@ -1,5 +1,6 @@
 import 'package:e_commerce_app14/controllers/home/home_controller.dart';
 import 'package:e_commerce_app14/core/class/handling_data_view.dart';
+import 'package:e_commerce_app14/core/constant/appRouts.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_appBar_home.dart';
 import 'package:e_commerce_app14/views/widgets/home/custom_card_home.dart';
@@ -36,7 +37,9 @@ class _HomeScreenState extends State<Home> {
                     mycontroller: mycontroller,
                     iconData: Icons.search,
                     labeltext: "Search",
-                    onPressedAccount: () {},
+                    onPressedFavorite: () {
+                      Get.toNamed(AppRouts.myFavorite);
+                    },
                     onPressedSearch: (){},
                   ),
                  const SizedBox(

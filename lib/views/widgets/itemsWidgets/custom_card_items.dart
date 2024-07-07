@@ -1,3 +1,4 @@
+import 'package:e_commerce_app14/controllers/itemsController/favorite_controller.dart';
 import 'package:e_commerce_app14/controllers/itemsController/items_controller.dart';
 import 'package:e_commerce_app14/core/constant/colors.dart';
 import 'package:e_commerce_app14/core/constant/text_styles.dart';
@@ -6,8 +7,8 @@ import 'package:e_commerce_app14/link_api.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomListItems extends GetView<ItemsControllerImp> {
-  const CustomListItems({super.key, required this.itemsModel});
+class CustomItemsCard extends GetView<ItemsControllerImp> {
+  const CustomItemsCard( {super.key, required this.itemsModel});
   final ItemsModel itemsModel;
   @override
   Widget build(BuildContext context) {
@@ -52,15 +53,21 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                     Text(
                       "${itemsModel.itemsPrice} \$",
                       style: Styles.boldtextStyle18
-                          .copyWith(color: AppColor.kPrimaryColor3),
+                          .copyWith(color: Colors.black),
                     ),
-                    IconButton(
+                    GetBuilder<FavoriteController>(builder:(controller) => IconButton(
                         padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: AppColor.kPrimaryColor3,
-                        ))
+                        onPressed: () {
+                          if (controller.isFavorite[itemsModel.itemsId]=="1") {
+                            controller.setFavorite(itemsModel.itemsId, "0");
+                             controller.removeFromFavorite(itemsModel.itemsId!);
+                          }else{
+                            controller.setFavorite(itemsModel.itemsId, "1");
+                            controller.addToFavorite(itemsModel.itemsId!);
+                          }
+                        },
+                        icon: controller.isFavorite[itemsModel.itemsId]=="1" ? 
+                        const Icon(Icons.favorite,color: Colors.red,) : const Icon(Icons.favorite_border_outlined, color: Colors.red,) ),)
                   ],
                 ),
               )
